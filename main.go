@@ -32,8 +32,8 @@ type Post struct {
 	Content string `json:"content"`
 }
 
-// PostsCollection type
-type PostsCollection struct {
+// PostCollection type
+type PostCollection struct {
 	Posts []Post `json:"items"`
 }
 
@@ -50,7 +50,7 @@ func getPosts(db *sql.DB) echo.HandlerFunc {
 
 		defer rows.Close()
 
-		result := PostsCollection{}
+		result := PostCollection{}
 
 		for rows.Next() {
 			post := Post{}
